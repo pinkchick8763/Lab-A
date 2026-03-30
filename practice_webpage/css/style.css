@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.hero {
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(../image/back-image.png);
+    background-position: center;
+    background-size: cover; /* 占滿畫面不重複 */
+    padding: 10px 10%; /* 上下10px 左右兩側保留10%的空間 */
+    overflow: hidden; /* 溢出隱藏 */
+    /* --------------以下有需求後面在加----------------- */
+    position: relative; /* 相對位置，輔助了feature-img 的定位  */
+    /* 只要在要定位的元素加上position:absolute還有(top,left,right,bottom)
+       及對應的值，並且在他的父元素加上position:relative，那個元素就可在
+       在它的父元素範圍內任意定位喔 */
+}
+nav {
+    padding: 10px 0;
+    display: flex; /* 將nav 改為水平排列 */
+    /* align-items: center; 對齊方式為居中 */
+    justify-content: space-between; /* 內容對齊方式為空格(平均分配空格) */
+}
+.logo {
+    width: 140px;
+}
+nav ul li {
+    display: inline-block; /* 水平排列 */
+    list-style: none;
+    margin: 10px 15px;
+}
+nav ul li a { /* 只有nav裡ul的li的a element 會生效 */
+    text-decoration: none; /* 裝飾消除 */
+    color: #333;
+    font-weight: 400; /* 字體粗細 */
+}
+.login-btn {
+    text-decoration: none;
+    margin-right: 15px; /* 用外距分開，同時將anchor 的觸發範圍往左移動 */
+    color: #333;
+    font-weight: 400;
+}
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    padding: 14px 40px;
+    color: #fff;
+    background-image: linear-gradient(45deg, #df4881, #c430d7);
+    /* 背景圖線性漸變，角度45，第一第二顏色代碼 */
+    font-size: 14px;
+    border-radius: 30px; /* 圓角半徑 */
+    border-top-right-radius: 0; /* 消除右上圓角半徑 */
+    /* --------------以下有需求後面在加----------------- */
+    transition: 0.5s; /* hover動畫消除 0.5秒的過渡時間 */
+}
+.content {
+    margin-top: 10%;
+    max-width: 600px;
+}
+.content h1 {
+    font-size: 70px;
+    color: #222;
+}
+.content p {
+    margin: 10px 0 30px; /* 上 左右 下 */
+    color: #333;
+    /* --------------以下有需求後面在加----------------- */
+    animation-delay: 0.5s; /* 動畫延遲跳出 */
+}
+.content .btn {
+    padding: 15px 80px; /* 變大按鈕 */
+    font-size: 16px;
+    /* --------------以下有需求後面在加----------------- */
+    animation-delay: 1s;
+}
+.btn:hover {
+    border-top-right-radius: 30px; /* 消除動畫需求半徑 */
+}
+.feature-img {
+    width: 540px;
+    position: absolute; /* bottom 0 right 15 絕對位置  */
+    top: 70px;
+    right: 8%;
+}
+.feature-img.anim{
+    animation-delay: 1.5s;
+}
+.anim {
+    opacity: 0;
+    transform: translateY(30px); /* Y軸平移 */
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup{
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
